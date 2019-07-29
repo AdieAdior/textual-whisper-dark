@@ -5,7 +5,6 @@
 	padding: 0;
 	font-size: 100%;
 	word-wrap: break-word;
-    background-color: #2b303b;
 }
 
 body {
@@ -15,7 +14,7 @@ body {
 	font-size: 12px;
 	overflow: hidden;
 	overflow-y: visible;
-	background-color: #181818;
+	background-color: #2b303b;
 	font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
 }
 
@@ -366,7 +365,19 @@ body div.line[data-line-type*=rawhtml] {
   	z-index: 190;
 	background: #20242C;
   	position: relative;
-    padding-left: 20px;
+ 	padding: 2px 0px 2px 5px;
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+/* Current session indicator */
+
+.message_buffer_session_indicator {
+	line-height: 25px;
+}
+
+.message_buffer_session_indicator hr {
+	display: none;
 }
 
 /* Message of the Day (MOTD) */
@@ -485,6 +496,22 @@ body div.event span.message[data-line-type*=mode]{
 	color: #8fa1b3;
 }
 
+body div.date_indicator {
+	color: #fff;
+	padding-left: 10px;
+	background-color: #20242C;
+	font-weight: bold;
+	min-height: 19px;
+	border-top: #34495E 1px solid;
+	border-bottom: #34495E 1px solid;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+
+body div.date_indicator hr {
+	display: none;
+}
+
 
 /* Nickname Colors */
 
@@ -568,7 +595,7 @@ body div.line.selectedUser[data-highlight=false] {
 	transition-property: border-top, border-bottom, background-color;
 	transition-duration: 0.5s, 0.5s, 0.5s;
 
-  	z-index: 190;
+  	z-index: 990;
   	position: relative;
   	background-color: #3E8040 !important;
 }
@@ -577,6 +604,21 @@ body div.line.selectedUser[data-highlight=false] .sender:before{
 	content: "★ ";
 	color: #3E8040;
 }
+
+body div.line.selectedUser[data-highlight=true] {
+	transition-property: border-top, border-bottom, background-color;
+	transition-duration: 0.5s, 0.5s, 0.5s;
+
+  	z-index: 990;
+  	position: relative;
+  	background-color: #093 !important;
+}
+
+body div.line.selectedUser[data-highlight=true] .sender:before{
+	content: "★ ";
+	color: #093;
+}
+
 
 
 body div.line.coalesced.selectedUser[data-highlight=false] .sender:before{
