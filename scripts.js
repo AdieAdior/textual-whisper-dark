@@ -60,69 +60,7 @@ Whisper = {
 			sender.innerHTML = '';
 		}
 	},
-	
-	updateNicknameAssociatedWithNewMessage: function(e)
-	{
-		/* We only want to target plain text messages. */
-		var elementType = e.getAttribute("ltype");
-	
-		if (elementType == "privmsg" || elementType == "action") {
-			/* Get the nickname information. */
-			var senderSelector = e.querySelector(".sender");
-	
-			if (senderSelector) {
-				/* Is this a mapped user? */
-				var nickname = senderSelector.getAttribute("nickname");
-	
-				/* If mapped, toggle status on for new message. */
-				if (this.mappedSelectedUsers.indexOf(nickname) > -1) {
-					this.toggleSelectionStatusForNicknameInsideElement(senderSelector);
-				}
-			}
-		}
-	},
-	
-	toggleSelectionStatusForNicknameInsideElement: function(e)
-	{
-		/* e is nested as the .sender so we have to go three parents
-		 up in order to reach the parent div that owns it. */
-		var parentSelector = e.parentNode.parentNode.parentNode.parentNode;
-	
-		parentSelector.classList.toggle("selectedUser");
-	},
-	
-	userNicknameSingleClickEvent: function(e)
-	{
-		/* This is called when the .sender is clicked. */
-		var nickname = e.getAttribute("nickname");
-	
-		/* Toggle mapped status for nickname. */
-		var mappedIndex = this.mappedSelectedUsers.indexOf(nickname);
-	
-		if (mappedIndex == -1) {
-			this.mappedSelectedUsers.push(nickname);
-		} else {
-			this.mappedSelectedUsers.splice(mappedIndex, 1);
-		}
-	
-		/* Gather basic information. */
-		var documentBody = document.getElementById("body_home");
-	
-		var allLines = documentBody.querySelectorAll('div[ltype="privmsg"], div[ltype="action"]');
-	
-		/* Update all elements of the DOM matching conditions. */
-		for (var i = 0, len = allLines.length; i < len; i++) {
-			var sender = allLines[i].querySelectorAll(".sender");
-	
-			if (sender.length > 0) {
-				if (sender[0].getAttribute("nickname") === nickname) {
-					this.toggleSelectionStatusForNicknameInsideElement(sender[0]);
-				}
-			}
-		}
-	}
 };
-
 
 Textual.viewFinishedLoading = function()
 {
@@ -140,12 +78,11 @@ Textual.viewFinishedReload = function()
 
 Textual.messageAddedToView = function (lineNum, fromBuffer) {
 	Whisper.coalesceLines(lineNum);
-	
-	var element = document.getElementById("line-" + lineNum);
-	Whisper.updateNicknameAssociatedWithNewMessage(element);
-};
+    var element = document.getElementById("line-" + lineNum);
+    ConversationTracking.updateNicknameWithNewMessage(element);
+}
 
 Textual.nicknameSingleClicked = function(e)
 {
-	Whisper.userNicknameSingleClickEvent(e);
+    ConversationTracking.nicknameSingleClickEventCallback(e);
 }

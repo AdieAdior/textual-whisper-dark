@@ -222,9 +222,9 @@ body div.line{
 	word-break: break-all;
 }
 
-body div.line[ltype*=ctcp],
-body div.line[ltype*=notice],
-body div.line[ltype*=wallops] {
+body div.line[data-line-type*=ctcp],
+body div.line[data-line-type*=notice],
+body div.line[data-line-type*=wallops] {
 	color: #f00;
   	z-index: 191;
   	position: relative;
@@ -232,30 +232,30 @@ body div.line[ltype*=wallops] {
 	border-bottom: 1px solid #f77;
 }
 
-body div.line[ltype*=ctcp] span.time,
-body div.line[ltype*=notice] span.time,
-body div.line[ltype*=wallops] span.time {
+body div.line[data-line-type*=ctcp] span.time,
+body div.line[data-line-type*=notice] span.time,
+body div.line[data-line-type*=wallops] span.time {
     line-height: 23px;
 }
 
-body div.line[ltype*=notice] span.message {
+body div.line[data-line-type*=notice] span.message {
     line-height: normal;
     padding: 5px 0 5px 10px;   
 }
 
-body div[ltype*=notice] .sender {
+body div[data-line-type*=notice] .sender {
 	color: #f00;
 	font-weight: 700;
 }
 
 /* PRIVMSG */
 
-body div.line[ltype*=privmsg][highlight=false] {
+body div.line[data-line-type*=privmsg][highlight=false] {
 	padding: 0;
 }
 
-body div.line[ltype*=privmsg][highlight=true],
-body div.line[ltype*=action][highlight=true] {
+body div.line[data-line-type*=privmsg][highlight=true],
+body div.line[data-line-type*=action][highlight=true] {
 	font-weight: normal;
 	background-color: #ffc !important;
     color: #F39C12 !important;
@@ -273,17 +273,17 @@ body div.line[highlight=true] p {
     clear: both;
 }
 
-body div[ltype*="privmsg"] .message {
+body div[data-line-type*="privmsg"] .message {
 	color: #C0C5CE;
 	height:30px;
 }
 
-body div[ltype*=privmsg] p[ltype*=myself] .message,
-body div[ltype*=privmsg][mtype*=myself] .message {
+body div[data-line-type*=privmsg] p[data-line-type*=myself] .message,
+body div[data-line-type*=privmsg][data-member-type*=myself] .message {
 	color: #C0C5CE;
 }
 
-body div[ltype*=privmsg] .sender {
+body div[data-line-type*=privmsg] .sender {
 	font-weight: 700;
 	width:134px;
 	min-height:30px;
@@ -303,19 +303,19 @@ body div[ltype*=privmsg] .sender {
 
 /* ACTION */
 
-body div.line[ltype*=action] {
+body div.line[data-line-type*=action] {
  	font-weight: bold;
  	font-style: italic;
 	background-color: #181818
 
 }
 
-body div[ltype*="action"] .message {
+body div[data-line-type*="action"] .message {
 	color: #eee;
 	font-weight: bold;
 }
 
-body div[ltype*=action] .sender {
+body div[data-line-type*=action] .sender {
 	position: absolute;
 	top: 0;
 	bottom: 0;
@@ -332,26 +332,26 @@ body div[ltype*=action] .sender {
 	height: 100%;
 }
 
-body div[ltype*=action] p[ltype*=myself] .sender,
-body div[ltype*=action][mtype*=myself] .sender {
+body div[data-line-type*=action] p[data-line-type*=myself] .sender,
+body div[data-line-type*=action][data-member-type*=myself] .sender {
 	color: #7ae;
 }
 
-body[dir=ltr] div[ltype*=action] .sender:before {
+body[dir=ltr] div[data-line-type*=action] .sender:before {
 	margin-right: 0.4em;
 }
 
-body[dir=ltr] div[ltype*=action] .sender:after {
+body[dir=ltr] div[data-line-type*=action] .sender:after {
 	content: "";
   	/* margin-right: 0.4em; */
 }
 
-body[dir=rtl] div[ltype*=action] .sender:before {
+body[dir=rtl] div[data-line-type*=action] .sender:before {
 	content: "\2022";
 	margin-left: 0.4em;
 }
 
-body[dir=rtl] div[ltype*=action] .sender:after {
+body[dir=rtl] div[data-line-type*=action] .sender:after {
 	content: "";
   	/* margin-left: 0.4em; */
 }
@@ -359,9 +359,9 @@ body[dir=rtl] div[ltype*=action] .sender:after {
 
 /* DEBUG/INVITE */
 
-body div.line[ltype*=invite],
-body div.line[ltype*=debug],
-body div.line[ltype*=rawhtml] {
+body div.line[data-line-type*=invite],
+body div.line[data-line-type*=debug],
+body div.line[data-line-type*=rawhtml] {
 	color: #999;
   	z-index: 190;
 	background: #20242C;
@@ -438,50 +438,50 @@ body div.event span.message {
 	padding-left: 0;
 }
 
-body div.line[ltype*=join],
-body div.line[ltype*=part],
-body div.line[ltype*=kick],
-body div.line[ltype*=quit],
-body div.line[ltype*=kill],
-body div.line[ltype*=nick],
-body div.line[ltype*=mode],
-body div.line[ltype*=topic],
-body div.line[ltype*=website] {
+body div.line[data-line-type*=join],
+body div.line[data-line-type*=part],
+body div.line[data-line-type*=kick],
+body div.line[data-line-type*=quit],
+body div.line[data-line-type*=kill],
+body div.line[data-line-type*=nick],
+body div.line[data-line-type*=mode],
+body div.line[data-line-type*=topic],
+body div.line[data-line-type*=website] {
 	padding-left: 20px;
 	background-color: #20242C;
 	font-weight: bold;
 	min-height: 19px;
 }
 
-body div.event span.message[ltype*=topic]{
+body div.event span.message[data-line-type*=topic]{
 	color: #fff;
 }
 
-body div.event span.message[ltype*=join]{
+body div.event span.message[data-line-type*=join]{
 	color: #65737e;
 }
 
-body div.event span.message[ltype*=part]{
+body div.event span.message[data-line-type*=part]{
 	color: #65737e;
 }
 
-body div.event span.message[ltype*=kick]{
+body div.event span.message[data-line-type*=kick]{
 	color: #E74C3C;
 }
 
-body div.event span.message[ltype*=quit]{
+body div.event span.message[data-line-type*=quit]{
 	color: #65737e;
 }
 
-body div.event span.message[ltype*=kill]{
+body div.event span.message[data-line-type*=kill]{
 	color: #E74C3C;
 }
 
-body div.event span.message[ltype*=nick]{
+body div.event span.message[data-line-type*=nick]{
 	color: #65737e;
 }
 
-body div.event span.message[ltype*=mode]{
+body div.event span.message[data-line-type*=mode]{
 	color: #8fa1b3;
 }
 
@@ -497,197 +497,6 @@ body .inline_nickname {
 	border: 1px solid #34495E;
 	border-radius: 3px;
 	margin: 4px 0;
-}
-
-body div[ltype*=privmsg] .sender[ltype*=myself], 
-body div[ltype*=privmsg] .sender[mtype*=myself] { 
-	color: #7ae; 
-}
-
-body .sender[ltype*=normal][colornumber='0'], 
-body .sender[mtype*=normal][colornumber='0'], 
-body .inline_nickname[colornumber='0'] {
-	color: #bf616a; 
-}
-
-body .sender[ltype*=normal][colornumber='1'], 
-body .sender[mtype*=normal][colornumber='1'], 
-body .inline_nickname[colornumber='1'] {
-	color: #d08770; 
-}
-
-body .sender[ltype*=normal][colornumber='2'], 
-body .sender[mtype*=normal][colornumber='2'], 
-body .inline_nickname[colornumber='2'] {
-	color: #ebcb8b; 
-}
-
-body .sender[ltype*=normal][colornumber='3'], 
-body .sender[mtype*=normal][colornumber='3'], 
-body .inline_nickname[colornumber='3'] {
-	color: #a3be8c; 
-}
-
-body .sender[ltype*=normal][colornumber='4'], 
-body .sender[mtype*=normal][colornumber='4'], 
-body .inline_nickname[colornumber='4'] {
-	color: #96b5b4; 
-}
-
-body .sender[ltype*=normal][colornumber='5'], 
-body .sender[mtype*=normal][colornumber='5'], 
-body .inline_nickname[colornumber='5'] {
-	color: #8fa1b3; 
-}
-
-body .sender[ltype*=normal][colornumber='6'], 
-body .sender[mtype*=normal][colornumber='6'], 
-body .inline_nickname[colornumber='6'] {
-	color: #b48ead; 
-}
-
-body .sender[ltype*=normal][colornumber='7'], 
-body .sender[mtype*=normal][colornumber='7'], 
-body .inline_nickname[colornumber='7'] {
-	color: #ab7967; 
-}
-
-body .sender[ltype*=normal][colornumber='8'], 
-body .sender[mtype*=normal][colornumber='8'], 
-body .inline_nickname[colornumber='8'] {
-	color: #bf616a; 
-}
-
-body .sender[ltype*=normal][colornumber='9'], 
-body .sender[mtype*=normal][colornumber='9'], 
-body .inline_nickname[colornumber='9'] {
-	color: #d08770; 
-}
-
-body .sender[ltype*=normal][colornumber='10'], 
-body .sender[mtype*=normal][colornumber='10'], 
-body .inline_nickname[colornumber='10'] {
-	color: #ebcb8b; 
-}
-
-body .sender[ltype*=normal][colornumber='11'], 
-body .sender[mtype*=normal][colornumber='11'], 
-body .inline_nickname[colornumber='11'] {
-	color: #a3be8c; 
-}
-
-body .sender[ltype*=normal][colornumber='12'], 
-body .sender[mtype*=normal][colornumber='12'], 
-body .inline_nickname[colornumber='12'] {
-	color: #96b5b4; 
-}
-
-body .sender[ltype*=normal][colornumber='13'], 
-body .sender[mtype*=normal][colornumber='13'], 
-body .inline_nickname[colornumber='13'] {
-	color: #8fa1b3; 
-}
-
-body .sender[ltype*=normal][colornumber='14'], 
-body .sender[mtype*=normal][colornumber='14'], 
-body .inline_nickname[colornumber='14'] {
-	color: #b48ead; 
-}
-
-body .sender[ltype*=normal][colornumber='15'], 
-body .sender[mtype*=normal][colornumber='15'], 
-body .inline_nickname[colornumber='15'] {
-	color: #ab7967; 
-}
-
-body .sender[ltype*=normal][colornumber='16'], 
-body .sender[mtype*=normal][colornumber='16'], 
-body .inline_nickname[colornumber='16'] { 
-	color: #bf616a;
-}
-
-body .sender[ltype*=normal][colornumber='17'], 
-body .sender[mtype*=normal][colornumber='17'], 
-body .inline_nickname[colornumber='17'] { 
-	color: #d08770;
-}
-
-body .sender[ltype*=normal][colornumber='18'], 
-body .sender[mtype*=normal][colornumber='18'], 
-body .inline_nickname[colornumber='18'] { 
-	color: #ebcb8b;
-}
-
-body .sender[ltype*=normal][colornumber='19'], 
-body .sender[mtype*=normal][colornumber='19'], 
-body .inline_nickname[colornumber='19'] { 
-	color: #a3be8c;
-}
-
-body .sender[ltype*=normal][colornumber='20'], 
-body .sender[mtype*=normal][colornumber='20'], 
-body .inline_nickname[colornumber='20'] { 
-	color: #96b5b4;
-}
-
-body .sender[ltype*=normal][colornumber='21'], 
-body .sender[mtype*=normal][colornumber='21'], 
-body .inline_nickname[colornumber='21'] { 
-	color: #8fa1b3;
-}
-
-body .sender[ltype*=normal][colornumber='22'], 
-body .sender[mtype*=normal][colornumber='22'], 
-body .inline_nickname[colornumber='22'] { 
-	color: #b48ead;
-}
-
-body .sender[ltype*=normal][colornumber='23'], 
-body .sender[mtype*=normal][colornumber='23'], 
-body .inline_nickname[colornumber='23'] { 
-	color: #ab7967;
-}
-
-body .sender[ltype*=normal][colornumber='24'], 
-body .sender[mtype*=normal][colornumber='24'], 
-body .inline_nickname[colornumber='24'] { 
-	color: #bf616a;
-}
-
-body .sender[ltype*=normal][colornumber='25'], 
-body .sender[mtype*=normal][colornumber='25'], 
-body .inline_nickname[colornumber='25'] { 
-	color: #d08770;
-}
-
-body .sender[ltype*=normal][colornumber='26'], 
-body .sender[mtype*=normal][colornumber='26'], 
-body .inline_nickname[colornumber='26'] { 
-	color: #ebcb8b;
-}
-
-body .sender[ltype*=normal][colornumber='27'], 
-body .sender[mtype*=normal][colornumber='27'], 
-body .inline_nickname[colornumber='27'] { 
-	color: #a3be8c;
-}
-
-body .sender[ltype*=normal][colornumber='28'], 
-body .sender[mtype*=normal][colornumber='28'], 
-body .inline_nickname[colornumber='28'] { 
-	color: #96b5b4;
-}
-
-body .sender[ltype*=normal][colornumber='29'], 
-body .sender[mtype*=normal][colornumber='29'], 
-body .inline_nickname[colornumber='29'] { 
-	color: #8fa1b3;
-}
-
-body .sender[ltype*=normal][colornumber='30'], 
-body .sender[mtype*=normal][colornumber='30'], 
-body .inline_nickname[colornumber='30'] { 
-	color: #b48ead;
 }
 
 .inlineImageCell {
@@ -739,27 +548,23 @@ html[systemversion^="10.8"] .inlineImageCell .closeButton {
 	cursor: pointer;
 }
 
-body div.line[ltype*=privmsg]:not(.selectedUser),
-body div.line[ltype*=action]:not(.selectedUser) {
+body div.line[data-line-type*=privmsg]:not(.selectedUser),
+body div.line[data-line-type*=action]:not(.selectedUser) {
 	transition-property: border-top, border-bottom, background-color;
 	transition-duration: 0.5s, 0.5s, 0.5s;
 }
 
-body div.line[ltype*=privmsg] .time:not(.selectedUser),
-body div.line[ltype*=action] .time:not(.selectedUser) {
+body div.line[data-line-type*=privmsg] .time:not(.selectedUser),
+body div.line[data-line-type*=action] .time:not(.selectedUser) {
 	transition: color 0.5s;
 }
 
-body div.line.selectedUser[highlight=false] .time {
+body div.line.selectedUser[data-highlight=false] .time {
 	transition: color 0.5s ease-in;
 	color: #fff;
 }
 
-body div.line.selectedUser[highlight=false] p, 
-body div.line.selectedUser[highlight=false] span.innerMessage,
-body div.line.selectedUser[highlight=false] span.message,
-body div.line.selectedUser[highlight=false] span.time,
-body div.line.selectedUser[highlight=false] a {
+body div.line.selectedUser[data-highlight=false] {
 	transition-property: border-top, border-bottom, background-color;
 	transition-duration: 0.5s, 0.5s, 0.5s;
 
@@ -768,12 +573,12 @@ body div.line.selectedUser[highlight=false] a {
   	background-color: #3E8040 !important;
 }
 
-body div.line.selectedUser[highlight=false] .sender:before{
+body div.line.selectedUser[data-highlight=false] .sender:before{
 	content: "★ ";
 	color: #3E8040;
 }
 
 
-body div.line.coalesced.selectedUser[highlight=false] .sender:before{
+body div.line.coalesced.selectedUser[data-highlight=false] .sender:before{
 	content: "";
 }
